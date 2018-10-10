@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Control HHO</title>
+	{% load static %}
+	<script>
+    var csrftoken = '{{ csrf_token }}';
+	</script>
+	<script src="{% static '/js/jquery-3.3.1.min.js' %}" ></script>
+ 	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  	<script src="{% static 'bootstrap/js/bootstrap.min.js' %}" ></script>
+  	<script src="{% static '/js/main.js' %}" ></script>
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-dark bg-dark">
+		 <a class="navbar-brand" readonly href="#">HHO Chile</a>
+	</nav>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+      <input type="text" id="keyUsuario" class="form-control" placeholder="Key Maquina"><br>
+      <form class="form-control" id="busqueda">  
+      </form>
+    </div>
+    <div class="col-2">
+      <div class="btn-group-vertical" role="">
+        <input type="button"  class="btn btn-dark" value="Buscar Maquina" onclick="buscar();"><br>
+      </div>
+      <div id="botonesReinicio" class="btn-group-vertical">
+      </div>
+    </div>
+    <div class="col-4">
+      <span>Modelo Maquina:</span><p id="modeloMaquina">-----</p>
+      <div class="list-group">
+        <ul class="list-group">
+          <li  class="list-group-item d-flex justify-content-between align-items-center">
+           <span>Estados Maquina:</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Escritorio
+            <span  id="estadoEscritorio">--</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Navegador
+            <span id="estadoNavegador">--</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Programa Nucleo
+            <span class="" id="estadoPrograma">--</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Resultados Busqueda</th>
+			</tr>
+  	</thead>   
+  		<tbody  id="mensajeSocket">
+  		</tbody>
+	</table> 
+</div>
+</body>
+</html>
